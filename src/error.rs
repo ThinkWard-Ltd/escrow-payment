@@ -15,10 +15,12 @@ pub enum EscrowError {
     InvalidAuthorityId,
     #[error("Amount overflow")]
     AmountOverflow,
-    #[error("Invalid mint address")]
-    InvalidMintAddress,
+    #[error("Account already settled")]
+    AccountAlreadySettled,
     #[error("Fee overflow")]
     FeeOverflow,
+    #[error("Account settled")]
+    AccountNotSettled
 }
 
 impl From<EscrowError> for ProgramError {

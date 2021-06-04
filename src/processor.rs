@@ -1,6 +1,7 @@
 use crate::{
     error::EscrowError::{
-        ExpectedAmountMismatch, InvalidMintAddress, NotRentExempt, AmountOverflow, FeeOverflow
+        AccountAlreadySettled, AccountNotSettled, AmountOverflow, ExpectedAmountMismatch,
+        FeeOverflow, NotRentExempt,
     },
     instruction::EscrowInstruction,
     state::Escrow,
@@ -9,7 +10,7 @@ use solana_program::{
     account_info::{next_account_info, AccountInfo},
     entrypoint::ProgramResult,
     msg,
-    program::{invoke, invoke_signed}, 
+    program::{invoke, invoke_signed},
     program_error::ProgramError,
     program_pack::{IsInitialized, Pack},
     pubkey::Pubkey,
@@ -27,13 +28,17 @@ impl Processor {
         let instruction = EscrowInstruction::unpack(instruction_data)?;
 
         match instruction {
-            EscrowInstruction::InitEscrow { amount, fee } => {
+            EscrowInstruction::InitEscrow { amount } => {
                 msg!("Instruction: InitEscrow");
-                Self::process_init_escrow(accounts, amount, fee, program_id)
+                Self::process_init_escrow(accounts, amount, program_id)
             }
-            EscrowInstruction::Settle => {
+            EscrowInstruction::Settle { fee } => {
                 msg!("Instruction: Settle");
-                Self::process_settlement(accounts, program_id)
+                Self::process_settlement(accounts, fee, program_id)
+            }
+            EscrowInstruction::Close => {
+                msg!("Instruction: Close");
+                Self::process_close(accounts, program_id)
             }
         }
     }
@@ -41,7 +46,6 @@ impl Processor {
     fn process_init_escrow(
         accounts: &[AccountInfo],
         amount: u64,
-        fees: u64,
         program_id: &Pubkey,
     ) -> ProgramResult {
         let account_info_iter = &mut accounts.iter();
@@ -51,31 +55,20 @@ impl Processor {
             return Err(ProgramError::MissingRequiredSignature);
         }
 
-        let payer_receiving_token_account_pubkey = next_account_info(account_info_iter)?;
-
         let payer_temp_token_account = next_account_info(account_info_iter)?;
         if *payer_temp_token_account.owner != spl_token::id() {
             return Err(ProgramError::IncorrectProgramId);
         }
 
-        let payer_temp_token_account_info = TokenAccount::unpack(&payer_temp_token_account.data.borrow())?;
+        let payer_temp_token_account_info =
+            TokenAccount::unpack(&payer_temp_token_account.data.borrow())?;
         if payer_temp_token_account_info.amount != amount {
-            msg!("Got Mismatched amount..., got: {} , expected {}", amount, payer_temp_token_account_info.amount);
+            msg!(
+                "Got Mismatched amount..., got: {} , expected {}",
+                amount,
+                payer_temp_token_account_info.amount
+            );
             return Err(ExpectedAmountMismatch.into());
-        }
-        if fees > amount {
-            msg!("Fee too high..., {} should be less than or equal to {}", fees, amount);
-            return Err(FeeOverflow.into());
-        }
-        if !payer_temp_token_account_info.is_native() {
-            if *payer_receiving_token_account_pubkey.owner != spl_token::id() {
-                return Err(ProgramError::IncorrectProgramId);
-            }    
-            let payer_receiving_token_account_pubkey_info =
-                TokenAccount::unpack(&payer_receiving_token_account_pubkey.data.borrow())?;
-            if payer_temp_token_account_info.mint != payer_receiving_token_account_pubkey_info.mint {
-                return Err(InvalidMintAddress.into());
-            }
         }
 
         let authority = next_account_info(account_info_iter)?;
@@ -96,8 +89,8 @@ impl Processor {
         }
 
         escrow_info.is_initialized = true;
+        escrow_info.is_settled = false;
         escrow_info.payer_pubkey = *payer_account.key;
-        escrow_info.payer_receiving_token_account_pubkey = *payer_receiving_token_account_pubkey.key;
         escrow_info.payer_temp_token_account_pubkey = *payer_temp_token_account.key;
         escrow_info.authority_pubkey = *authority.key;
         escrow_info.amount = amount;
@@ -130,8 +123,10 @@ impl Processor {
     //inside: impl Processor {}
     fn process_settlement(
         accounts: &[AccountInfo],
+        fee: u64,
         program_id: &Pubkey,
     ) -> ProgramResult {
+        msg!("Process settlement with fee: {}", fee);
         let account_info_iter = &mut accounts.iter();
         let authority = next_account_info(account_info_iter)?;
 
@@ -147,8 +142,11 @@ impl Processor {
             TokenAccount::unpack(&pdas_temp_token_account.data.borrow())?;
 
         let escrow_account = next_account_info(account_info_iter)?;
-        let escrow_info = Escrow::unpack(&escrow_account.data.borrow())?;
+        let mut escrow_info = Escrow::unpack(&escrow_account.data.borrow())?;
 
+        if escrow_info.is_settled() {
+            return Err(AccountAlreadySettled.into());
+        }
         if escrow_info.authority_pubkey != *authority.key {
             return Err(ProgramError::InvalidAccountData);
         }
@@ -160,7 +158,6 @@ impl Processor {
         let fee_payer_account = next_account_info(account_info_iter)?;
         let token_program = next_account_info(account_info_iter)?;
 
-
         let (pda, bump_seed) = Pubkey::find_program_address(&[b"escrow"], program_id);
 
         let pda_account = next_account_info(account_info_iter)?;
@@ -168,8 +165,16 @@ impl Processor {
             return Err(ProgramError::InvalidAccountData);
         }
 
-        let amount = pdas_temp_token_account_info.amount - escrow_info.fee;
-        let fee = escrow_info.fee;
+        if fee > pdas_temp_token_account_info.amount {
+            msg!(
+                "Fee too high..., {} should be less than or equal to {}",
+                fee,
+                pdas_temp_token_account_info.amount
+            );
+            return Err(FeeOverflow.into());
+        }
+
+        let amount = pdas_temp_token_account_info.amount - fee;
 
         if pdas_temp_token_account_info.is_native() {
             let close_pdas_temp_acc_ix = spl_token::instruction::close_account(
@@ -199,18 +204,17 @@ impl Processor {
             **takers_account.lamports.borrow_mut() = dest_starting_lamports
                 .checked_add(amount)
                 .ok_or(AmountOverflow)?;
-            
             if fee > 0 {
                 let source_starting_lamports = escrow_account.lamports();
                 **escrow_account.lamports.borrow_mut() = source_starting_lamports
-                .checked_sub(fee)
-                .ok_or(AmountOverflow)?;
+                    .checked_sub(fee)
+                    .ok_or(AmountOverflow)?;
 
                 let dest_starting_lamports = fee_taker_account.lamports();
                 **fee_taker_account.lamports.borrow_mut() = dest_starting_lamports
                     .checked_add(fee)
                     .ok_or(AmountOverflow)?;
-            } 
+            }
         } else {
             let transfer_to_taker_ix = spl_token::instruction::transfer(
                 token_program.key,
@@ -274,6 +278,40 @@ impl Processor {
             )?;
         }
 
+        msg!("Mark the escrow account as settled...");
+        escrow_info.is_settled = true;
+        escrow_info.fee = fee;
+        escrow_info.payee_pubkey = *takers_account.key;
+        escrow_info.fee_taker_pubkey = *fee_taker_account.key;
+        Escrow::pack(escrow_info, &mut escrow_account.data.borrow_mut())?;
+        Ok(())
+    }
+
+    //inside: impl Processor {}
+    fn process_close(accounts: &[AccountInfo], program_id: &Pubkey) -> ProgramResult {
+        let account_info_iter = &mut accounts.iter();
+        let authority = next_account_info(account_info_iter)?;
+
+        if !authority.is_signer {
+            return Err(ProgramError::MissingRequiredSignature);
+        }
+
+        let escrow_account = next_account_info(account_info_iter)?;
+        let escrow_info = Escrow::unpack(&escrow_account.data.borrow())?;
+
+        if escrow_info.authority_pubkey != *authority.key {
+            return Err(ProgramError::InvalidAccountData);
+        }
+
+        if escrow_account.owner != program_id {
+            return Err(ProgramError::InvalidAccountData);
+        }
+
+        if !escrow_info.is_settled() {
+            return Err(AccountNotSettled.into());
+        }
+
+        let fee_payer_account = next_account_info(account_info_iter)?;
         msg!("Closing the escrow account...");
         **fee_payer_account.lamports.borrow_mut() = fee_payer_account
             .lamports()
