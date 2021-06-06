@@ -1,8 +1,0 @@
-/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/rls/debug/deps/solana_stake_program-4a8b2311678580d5.rmeta: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/config.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/stake_instruction.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/stake_state.rs
-
-/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/rls/debug/deps/solana_stake_program-4a8b2311678580d5.d: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/config.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/stake_instruction.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/stake_state.rs
-
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/lib.rs:
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/config.rs:
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/stake_instruction.rs:
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-stake-program-1.6.6/src/stake_state.rs:

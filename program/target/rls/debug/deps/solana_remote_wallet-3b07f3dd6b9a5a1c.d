@@ -1,9 +1,0 @@
-/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/rls/debug/deps/solana_remote_wallet-3b07f3dd6b9a5a1c.rmeta: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/ledger.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/ledger_error.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/remote_keypair.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/remote_wallet.rs
-
-/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/rls/debug/deps/solana_remote_wallet-3b07f3dd6b9a5a1c.d: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/ledger.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/ledger_error.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/remote_keypair.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/remote_wallet.rs
-
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/lib.rs:
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/ledger.rs:
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/ledger_error.rs:
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/remote_keypair.rs:
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-remote-wallet-1.6.6/src/remote_wallet.rs:

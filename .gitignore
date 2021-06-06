@@ -1,6 +1,6 @@
 /*-dump.txt
 /*.so
-/target/
+target/
 .vscode
 .DS_Store
 node_modules/

@@ -1,9 +1,0 @@
-/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/bpfel-unknown-unknown/release/deps/spl_associated_token_account-089695d30f4c49ab.so: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/entrypoint.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/processor.rs
-
-/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/bpfel-unknown-unknown/release/deps/libspl_associated_token_account-089695d30f4c49ab.rlib: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/entrypoint.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/processor.rs
-
-/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/bpfel-unknown-unknown/release/deps/spl_associated_token_account-089695d30f4c49ab.d: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/entrypoint.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/processor.rs
-
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/lib.rs:
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/entrypoint.rs:
-/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-associated-token-account-1.0.2/src/processor.rs:
