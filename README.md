@@ -1,15 +1,9 @@
-### Environment Setup
-1. Install Rust from https://rustup.rs/
-2. Install Solana v1.6.2 or later from https://docs.solana.com/cli/install-solana-cli-tools#use-solanas-install-tool
+Escrow Payment Program
 
-### Build and test for program compiled natively
-```
-$ cargo build
-$ cargo test
-```
+A escrow payment program on the Solana blockchain, usable for market place payment between buyer and seller. An authority is also required to confirm service delivery and release payment to seller
 
-### Build and test the program compiled for BPF
-```
-$ cargo build-bpf
-$ cargo test-bpf
-```
+This program provides an interface and implementation that third parties can
+utilize to create and use.
+
+
+JavaScript binding/helpers are available in the `./js` directory.

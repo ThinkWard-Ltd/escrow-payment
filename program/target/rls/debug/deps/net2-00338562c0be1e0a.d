@@ -1,0 +1,13 @@
+/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/rls/debug/deps/net2-00338562c0be1e0a.rmeta: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/tcp.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/udp.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/socket.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/ext.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/utils.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/mod.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/impls.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/unix.rs
+
+/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/rls/debug/deps/net2-00338562c0be1e0a.d: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/tcp.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/udp.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/socket.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/ext.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/utils.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/mod.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/impls.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/unix.rs
+
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/lib.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/tcp.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/udp.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/socket.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/ext.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/utils.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/mod.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/impls.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/unix.rs:

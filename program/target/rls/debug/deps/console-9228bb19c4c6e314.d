@@ -1,0 +1,11 @@
+/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/rls/debug/deps/console-9228bb19c4c6e314.rmeta: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/common_term.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/kb.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/term.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/unix_term.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/utils.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/ansi.rs
+
+/Users/evenmatrix/Desktop/projects/solana/tutorial/solana-bpf-program-template/target/rls/debug/deps/console-9228bb19c4c6e314.d: /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/lib.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/common_term.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/kb.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/term.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/unix_term.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/utils.rs /Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/ansi.rs
+
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/lib.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/common_term.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/kb.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/term.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/unix_term.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/utils.rs:
+/Users/evenmatrix/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.14.1/src/ansi.rs:
